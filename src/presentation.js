@@ -17,9 +17,10 @@ require('normalize.css');
 const theme = createTheme(
   {
     primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
-    quaternary: '#CECECE',
+    secondary: '#815ba4',
+    tertiary: '#08b6ef',
+    quaternary: '#fec419',
+    dark: '#2f1e2e'
   },
   {
     primary: 'Fantasque Sans Mono',
@@ -31,11 +32,13 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
+        progress='number'
+        showFullscreenControl={false}
         transition={['zoom', 'slide']}
         transitionDuration={500}
         theme={theme}
       >
-        <Intro transition={['slide']} bgColor="primary" />
+        <Intro transition={['fade']} bgColor="primary" />
       </Deck>
     );
   }
