@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.16",
+    "@emotion/styled": "^10.0.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "spectacle-scripts": "2.4.0"
+    "react-icons": "^3.7.0",
+    "spectacle-code-slide": "^0.5.2",
+    "spectacle-scripts": "2.4.0",
+    "three": "^0.107.0"
   },
   "scripts": {
     "start": "react-scripts start",
