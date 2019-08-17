@@ -11,6 +11,7 @@ import createTheme from 'spectacle/lib/themes/default';
 
 import {
   IntroSlide,
+  WebGLSlide,
 } from './presentation/';
 
 // Require CSS
@@ -42,6 +43,7 @@ export default class Presentation extends React.Component {
         theme={theme}
       >
         <IntroSlide transition={['fade']} bgColor="primary" />
+        <WebGLSlide transition={['slide']} bgColor="primary" />
       </Deck>
     );
   }
