@@ -1,5 +1,5 @@
-import Intro from './01-intro';
+import IntroSlide from './01-intro';
 
 export {
-  Intro
+  IntroSlide,
 };

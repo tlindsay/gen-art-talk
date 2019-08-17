@@ -8,7 +8,7 @@ import {
   S
 } from 'spectacle';
 
-export default class Intro extends React.Component {
+export default class IntroSlide extends React.Component {
   render() {
     return (
       <Slide {...this.props}>

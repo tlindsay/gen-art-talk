@@ -9,7 +9,9 @@ import {
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
 
-import { Intro } from './presentation/';
+import {
+  IntroSlide,
+} from './presentation/';
 
 // Require CSS
 require('normalize.css');
@@ -32,13 +34,14 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
+        controls={false}
         progress='number'
         showFullscreenControl={false}
         transition={['zoom', 'slide']}
         transitionDuration={500}
         theme={theme}
       >
-        <Intro transition={['fade']} bgColor="primary" />
+        <IntroSlide transition={['fade']} bgColor="primary" />
       </Deck>
     );
   }
