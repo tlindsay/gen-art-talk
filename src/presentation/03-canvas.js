@@ -10,6 +10,8 @@ import {
   Fill
 } from 'spectacle';
 
+import funcToText from '../utils/func-to-text';
+
 const StyledCanvas = styled.canvas`
   border: 1px solid black;
 `;
@@ -18,30 +20,40 @@ export default class CanvasSlide extends React.Component {
   constructor(props) {
     super(props);
     this.canvasRef = React.createRef();
+    this.state = { angle: 0 };
+    this.updateAnimationState = this.updateAnimationState.bind(this);
+  }
+
+  componentDidMount() {
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
   }
 
   componentDidUpdate() {
     let canvas = this.canvasRef.current;
     let ctx = canvas.getContext('2d');
     let { height, width } = canvas;
+    let { angle } = this.state;
 
+    ctx.save();
     ctx.fillStyle = '#85a';
-    ctx.fillRect(
-      20,
-      20,
-      width-40,
-      height-40
-    );
+    ctx.clearRect(0, 0, width, height);
+    ctx.translate(width / 2, height / 2);
+    ctx.rotate((angle * Math.PI) / 180);
+    ctx.fillRect(-width / 4, -height / 4, width / 2, height / 2);
+    ctx.restore();
+  }
+
+  updateAnimationState() {
+    this.setState(prevState => ({ angle: prevState.angle + 1 }));
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.rAF);
   }
 
   render() {
-    let code = this
-      .componentDidUpdate
-      .toString()
-      .split('\n')
-      .slice(1, -1)
-      .map(s => s.replace(/^\s{6}/, ''))
-      .join('\n');
+    let code = funcToText(this.componentDidUpdate, 2);
 
     return (
       <Slide {...this.props} align="center top">
