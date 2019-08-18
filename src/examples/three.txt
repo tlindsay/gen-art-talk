@@ -1,0 +1,44 @@
+let context = canvas.getContext('webgl');
+let { height, width } = canvas;
+let time = 0;
+
+let scene = new THREE.Scene();
+let renderer = new THREE.WebGLRenderer({ canvas, context });
+renderer.setSize(width, height);
+
+let camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+camera.position.set(2, 2, -4);
+camera.lookAt(new THREE.Vector3());
+
+mesh = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.ShaderMaterial({
+    fragmentShader,
+    vertexShader,
+    uniforms: {
+      aspect: { value: width / height },
+      time: { value: 0 }
+    }
+  })
+);
+scene.add(mesh);
+
+scene.add(new THREE.AmbientLight('#59314f'));
+
+let light = new THREE.PointLight('#45caf7', 1, 15.5);
+light.position.set(2, 2, -4).multiplyScalar(1.5);
+scene.add(light);
+
+let render = (() => {
+  mesh.rotateX(Math.sin(time * 100 * Math.PI / 180));
+  mesh.rotateY(Math.cos(time * 100 * Math.PI / 180));
+  mesh.rotateZ(Math.sin(time * 10 * Math.PI / 180));
+
+  mesh.material.uniforms.time.value = time;
+  time++;
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(render);
+});
+
+requestAnimationFrame(render);

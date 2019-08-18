@@ -14,6 +14,7 @@ import {
   WebGLSlide,
   CanvasSlide,
   ThreeSlide,
+  ThreeCodeSlide
 } from './presentation/';
 
 // Require CSS
@@ -48,6 +49,7 @@ export default class Presentation extends React.Component {
         <WebGLSlide transition={['slide']} bgColor="primary" />
         <CanvasSlide transition={['slide']} bgColor="primary" />
         <ThreeSlide transition={['slide']} bgColor="primary" />
+        <ThreeCodeSlide transition={['slide']} bgColor="primary" />
       </Deck>
     );
   }
