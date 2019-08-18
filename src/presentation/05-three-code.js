@@ -14,9 +14,9 @@ export default class ThreeCodeSlide extends React.Component {
         ranges={[
           { loc: [0, 3] },
           { loc: [4, 11] },
-          { loc: [12, 24] },
-          { loc: [25, 30] },
-          { loc: [31, 44] }
+          { loc: [12, 17] },
+          { loc: [18, 23] },
+          { loc: [24, 37] }
         ]}
       />
     )
