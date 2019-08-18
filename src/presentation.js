@@ -13,6 +13,7 @@ import {
   IntroSlide,
   WebGLSlide,
   CanvasSlide,
+  ThreeSlide,
 } from './presentation/';
 
 // Require CSS
@@ -46,6 +47,7 @@ export default class Presentation extends React.Component {
         <IntroSlide transition={['fade']} bgColor="primary" />
         <WebGLSlide transition={['slide']} bgColor="primary" />
         <CanvasSlide transition={['slide']} bgColor="primary" />
+        <ThreeSlide transition={['slide']} bgColor="primary" />
       </Deck>
     );
   }

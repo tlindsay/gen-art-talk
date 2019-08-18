@@ -12,6 +12,7 @@
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
+    "babel-plugin-glslify": "^2.0.0",
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
     "bfj": "6.1.1",
@@ -30,6 +31,10 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
+    "glsl-hsl2rgb": "^1.1.0",
+    "glsl-noise": "^0.0.0",
+    "glslify": "^7.0.0",
+    "glslify-loader": "^2.0.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "23.6.0",
@@ -118,12 +123,17 @@
       "json",
       "web.jsx",
       "jsx",
-      "node"
+      "node",
+      "glsl"
     ]
   },
   "babel": {
+    "sourceMaps": true,
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "glslify"
     ]
   }
 }
