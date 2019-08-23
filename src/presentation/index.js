@@ -6,6 +6,7 @@ import ThreeCodeSlide from './05-three-code';
 import NoiseSlide from './06-noise';
 import ShaderSlide from './07-shaders';
 import NoiseDemoSlide from './08-noise-demo';
+import ResourceSlide from './99-resources';
 
 export {
   IntroSlide,
@@ -16,4 +17,5 @@ export {
   NoiseSlide,
   ShaderSlide,
   NoiseDemoSlide,
+  ResourceSlide
 };

@@ -18,6 +18,7 @@ import {
   NoiseSlide,
   ShaderSlide,
   NoiseDemoSlide,
+  ResourceSlide
 } from './presentation/';
 
 // Require CSS
@@ -57,6 +58,7 @@ export default class Presentation extends React.Component {
         <NoiseSlide transition={['slide']} bgColor="primary" />
         <ShaderSlide transition={['slide']} bgColor="primary" />
         <NoiseDemoSlide transition={['slide']} bgColor="primary" />
+        <ResourceSlide transition={['slide']} bgColor="primary" />
       </Deck>
     );
   }
