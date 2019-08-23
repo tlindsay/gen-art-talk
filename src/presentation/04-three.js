@@ -6,6 +6,7 @@ import {
 } from 'spectacle';
 
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fragmentShader from '../shaders/frag01.glsl';
 import vertexShader from '../shaders/vert01.glsl';
 
@@ -39,6 +40,8 @@ export default class ThreeSlide extends React.Component {
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
     this.camera.position.set(2, 2, -4);
     this.camera.lookAt(new THREE.Vector3());
+
+    this.controls = new OrbitControls(this.camera, canvas);
 
     this.mesh = new THREE.Mesh(
       new THREE.BoxGeometry(1, 1, 1),
@@ -77,6 +80,7 @@ export default class ThreeSlide extends React.Component {
         time: prevState.time + 0.05
       }
     });
+    this.controls.update();
     this.rAf = requestAnimationFrame(this.updateAnimationState);
   }
 
