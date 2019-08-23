@@ -3,7 +3,9 @@ import React from 'react';
 
 // Import Spectacle Core tags
 import {
-  Deck
+  Deck,
+  Slide,
+  Heading
 } from 'spectacle';
 
 // Import theme
@@ -29,7 +31,7 @@ const theme = createTheme(
     primary: 'white',
     secondary: '#815ba4',
     tertiary: '#08b6ef',
-    quaternary: '#fec419',
+    quaternary: '#48b684',
     dark: '#2f1e2e'
   },
   {
@@ -59,6 +61,12 @@ export default class Presentation extends React.Component {
         <ShaderSlide transition={['slide']} bgColor="primary" />
         <NoiseDemoSlide transition={['slide']} bgColor="primary" />
         <ResourceSlide transition={['slide']} bgColor="primary" />
+        <Slide transition={['slide']} bgColor="primary">
+          <Heading textColor='secondary'>
+            Thanks!
+            <span aria-label="Bye" role="img">👋</span>
+          </Heading>
+        </Slide>
       </Deck>
     );
   }
