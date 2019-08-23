@@ -16,7 +16,8 @@ import {
   ThreeSlide,
   ThreeCodeSlide,
   NoiseSlide,
-  NoiseDemoSlide
+  ShaderSlide,
+  NoiseDemoSlide,
 } from './presentation/';
 
 // Require CSS
@@ -41,6 +42,7 @@ export default class Presentation extends React.Component {
     return (
       <Deck
         controls={false}
+        contentWidth={1200}
         progress='number'
         showFullscreenControl={false}
         transition={['zoom', 'slide']}
@@ -53,6 +55,7 @@ export default class Presentation extends React.Component {
         <ThreeSlide transition={['slide']} bgColor="primary" />
         <ThreeCodeSlide transition={['fade']} bgColor="primary" />
         <NoiseSlide transition={['slide']} bgColor="primary" />
+        <ShaderSlide transition={['slide']} bgColor="primary" />
         <NoiseDemoSlide transition={['slide']} bgColor="primary" />
       </Deck>
     );
