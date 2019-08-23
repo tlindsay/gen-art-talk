@@ -8,6 +8,7 @@ import {
   Fit,
   Fill
 } from 'spectacle';
+import { Toggle } from 'react-toggle-component';
 import { stripIndent } from 'common-tags';
 
 import * as THREE from 'three';
@@ -19,14 +20,28 @@ let StyledCanvas = styled.canvas`
   border: 1px solid black;
 `;
 
+let Label = styled.label`
+  font-weight: bold;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 auto;
+`;
+
 export default class NoiseDemoSlide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       rotation: { x: 0, y: 0, z: 0 },
+      shouldShowBox: false,
       time: 0
     };
     this.canvasRef = React.createRef();
+    this.swapMesh = this.swapMesh.bind(this);
     this.updateAnimationState = this.updateAnimationState.bind(this);
   }
 
@@ -84,6 +99,15 @@ export default class NoiseDemoSlide extends React.Component {
     cancelAnimationFrame(this.rAF);
   }
 
+  swapMesh({ target: { checked } }) {
+    let meshToShow = checked ? this.boxMesh : this.sphereMesh;
+    if (meshToShow.geometry.type !== this.mesh.geometry.type) {
+      this.scene.remove(this.mesh);
+      this.mesh = meshToShow;
+      this.scene.add(this.mesh);
+    }
+  }
+
   updateAnimationState() {
     let { x, y, z } = this.state.rotation;
     let { time } = this.state;
@@ -134,9 +158,19 @@ export default class NoiseDemoSlide extends React.Component {
               ref={this.canvasRef}
               width="300"
             />
+            <Label textAlign="center">
+              <span>Sphere</span>
+              <Toggle
+                borderColor="#85a"
+                knobColor="#85a"
+                onToggle={this.swapMesh}
+              />
+              <span>Cube</span>
+            </Label>
           </Fit>
           <Fill>
             <CodePane
+              lang="clike"
               source={code}
               padding="0 0 0 1em"
               textSize="1em"
