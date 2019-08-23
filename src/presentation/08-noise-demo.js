@@ -8,6 +8,7 @@ import {
   Fit,
   Fill
 } from 'spectacle';
+import { stripIndent } from 'common-tags';
 
 import * as THREE from 'three';
 
@@ -47,7 +48,18 @@ export default class NoiseDemoSlide extends React.Component {
     light.position.set(2, 2, -4).multiplyScalar(1.5);
     this.scene.add(light);
 
-    this.mesh = new THREE.Mesh(
+    this.boxMesh = new THREE.Mesh(
+      new THREE.BoxGeometry(1, 1, 1),
+      new THREE.ShaderMaterial({
+        fragmentShader,
+        vertexShader,
+        uniforms: {
+          aspect: { value: width / height },
+          time: { value: 0 }
+        }
+      })
+    );
+    this.sphereMesh = new THREE.Mesh(
       new THREE.SphereGeometry(1, 100, 100),
       new THREE.ShaderMaterial({
         fragmentShader,
@@ -58,6 +70,7 @@ export default class NoiseDemoSlide extends React.Component {
         }
       })
     );
+    this.mesh = this.sphereMesh;
     this.scene.add(this.mesh);
 
     this.rAF = requestAnimationFrame(this.updateAnimationState);
@@ -91,22 +104,22 @@ export default class NoiseDemoSlide extends React.Component {
     this.rAF = requestAnimationFrame(this.updateAnimationState);
   }
   render() {
-    let code = `
-#pragma glslify: noise = require(...);
+    let code = stripIndent`
+      #pragma glslify: noise = require(...);
 
-varying vec2 vUv;
-uniform float time;
+      varying vec2 vUv;
+      uniform float time;
 
-void main() {
-  vUv = uv;
-  vec3 pos = position.xyz;
+      void main() {
+        vUv = uv;
+        vec3 pos = position.xyz;
 
-  pos += noise(vec4(pos, time)) * .15;
+        pos += noise(vec4(pos, time)) * .15;
 
-  gl_Position = projectionMatrix
-                * modelViewMatrix
-                * vec4(pos, 1.0);
-}
+        gl_Position = projectionMatrix
+                      * modelViewMatrix
+                      * vec4(pos, 1.0);
+      }
     `;
 
     return (
