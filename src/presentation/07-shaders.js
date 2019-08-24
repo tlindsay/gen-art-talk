@@ -44,6 +44,7 @@ export default class ShaderSlide extends React.Component {
           />
           <Fill>
             <CodePane
+              lang="clike"
               source={shader}
               padding="0 0 0 1em"
               textSize="1em"
