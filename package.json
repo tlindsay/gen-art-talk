@@ -1,5 +1,6 @@
 {
   "name": "gen-art",
+  "homepage": "https://tlindsay.github.io/gen-art-talk",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -74,6 +75,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -86,6 +89,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "simplex-noise": "tlindsay/simplex-noise.js"
   },
   "jest": {
