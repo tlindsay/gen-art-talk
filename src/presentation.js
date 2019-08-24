@@ -20,6 +20,8 @@ import {
   NoiseSlide,
   ShaderSlide,
   NoiseDemoSlide,
+  MIDISlide,
+  MIDIDemoSlide,
   ResourceSlide
 } from './presentation/';
 
@@ -60,6 +62,8 @@ export default class Presentation extends React.Component {
         <NoiseSlide transition={['slide']} bgColor="primary" />
         <ShaderSlide transition={['slide']} bgColor="primary" />
         <NoiseDemoSlide transition={['slide']} bgColor="primary" />
+        <MIDISlide transition={['slide']} bgColor="primary" />
+        <MIDIDemoSlide transition={['slide']} bgColor="primary" />
         <ResourceSlide transition={['slide']} bgColor="primary" />
         <Slide transition={['slide']} bgColor="primary">
           <Heading textColor='secondary'>

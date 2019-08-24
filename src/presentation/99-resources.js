@@ -25,6 +25,12 @@ export default class ResourceSlide extends React.Component {
           <ListItem>
             <Link href="https://www.mattdesl.com">Matt DesLaurier</Link>
           </ListItem>
+          <ListItem>
+            <Link href="https://github.com/djipco/webmidi">WebMidi.js</Link>
+          </ListItem>
+          <ListItem>
+            <Link href="https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput">Web MIDI API Docs</Link>
+          </ListItem>
         </List>
       </Slide>
     )
