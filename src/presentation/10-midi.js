@@ -35,12 +35,22 @@ export default class MIDISlide extends React.Component {
             <ListItem>
               Only works in Chrome and Opera
               <Link
-                href="https://caniuse.com/#feat=mid"
+                href="https://caniuse.com/#feat=midi"
                 margin="auto auto auto 1em"
                 target="_blank"
                 textSize=".5em"
               >
                 Can I Use
+              </Link>
+            </ListItem>
+          </Appear>
+          <Appear>
+            <ListItem>
+              <Link
+                href="https://github.com/djipco/webmidi"
+                target="_blank"
+              >
+                WebMidi.js
               </Link>
             </ListItem>
           </Appear>

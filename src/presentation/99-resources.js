@@ -4,7 +4,8 @@ import {
   Heading,
   List,
   ListItem,
-  Link
+  Link,
+  Code
 } from 'spectacle';
 
 export default class ResourceSlide extends React.Component {
@@ -24,6 +25,16 @@ export default class ResourceSlide extends React.Component {
           </ListItem>
           <ListItem>
             <Link href="https://www.mattdesl.com">Matt DesLaurier</Link>
+            <List>
+              <ListItem margin="0 1em">
+                <Link href="https://frontendmasters.com/">Frontend Masters Course</Link>
+              </ListItem>
+              <ListItem margin="0 1em">
+                <Link href="https://github.com/mattdesl/canvas-sketch/">
+                  <Code>canvas-sketch</Code>
+                </Link>
+              </ListItem>
+            </List>
           </ListItem>
           <ListItem>
             <Link href="https://github.com/djipco/webmidi">WebMidi.js</Link>

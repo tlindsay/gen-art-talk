@@ -32,17 +32,25 @@ export default class MIDIDemoSlide extends React.Component {
       time: 0
     };
 
-    webmidi.enable((e) => {
-      this.input = webmidi.inputs[0];
+    webmidi.enable((err) => {
+      if (err) {
+        alert('Oops!');
+        return;
+      } else {
+        this.input = webmidi.inputs[0];
+        window.midiInput = this.input;
 
-      this.input.addListener('pitchbend', 'all', this.pitchBend);
-      this.input.addListener('noteon', 'all', this.keyDown);
-      this.input.addListener('noteoff', 'all', this.keyUp);
+        this.input.addListener('pitchbend', 'all', this.pitchBend);
+        this.input.addListener('controlchange', 'all', this.controlChange);
+        this.input.addListener('noteon', 'all', this.keyDown);
+        this.input.addListener('noteoff', 'all', this.keyUp);
+      }
     });
 
     this.canvasRef = React.createRef();
     this.updateAnimationState = this.updateAnimationState.bind(this);
     this.pitchBend = this.pitchBend.bind(this);
+    this.controlChange = this.controlChange.bind(this);
     this.keyDown = this.keyDown.bind(this);
     this.keyUp = this.keyUp.bind(this);
     this.randomizeCoord = this.randomizeCoord.bind(this);
@@ -94,6 +102,13 @@ export default class MIDIDemoSlide extends React.Component {
     this.setState(prevState => {
       return { ...prevState, bend: value };
     });
+  }
+
+  controlChange({ value }) {
+    if ( value === 0 ) { value = 0.1 }
+    this.setState(prevState => {
+      return { ...prevState, bend: Math.sin(value) };
+    })
   }
 
   keyDown({ data, note }) {

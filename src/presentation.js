@@ -15,12 +15,14 @@ import {
   IntroSlide,
   WebGLSlide,
   CanvasSlide,
+  ExamplesSlide,
   ThreeSlide,
   ThreeCodeSlide,
   NoiseSlide,
   ShaderSlide,
   NoiseDemoSlide,
   MIDISlide,
+  WebMidiSlide,
   MIDIDemoSlide,
   ResourceSlide
 } from './presentation/';
@@ -56,6 +58,7 @@ export default class Presentation extends React.Component {
       >
         <IntroSlide transition={['fade']} bgColor="primary" />
         <WebGLSlide transition={['slide']} bgColor="primary" />
+        <ExamplesSlide transition={['slide']} bgColor="primary" />
         <CanvasSlide transition={['slide']} bgColor="primary" />
         <ThreeSlide transition={['slide']} bgColor="primary" />
         <ThreeCodeSlide transition={['fade']} bgColor="primary" />
@@ -63,6 +66,7 @@ export default class Presentation extends React.Component {
         <ShaderSlide transition={['slide']} bgColor="primary" />
         <NoiseDemoSlide transition={['slide']} bgColor="primary" />
         <MIDISlide transition={['slide']} bgColor="primary" />
+        <WebMidiSlide transition={['slide']} bgColor="primary" />
         <MIDIDemoSlide transition={['slide']} bgColor="primary" />
         <ResourceSlide transition={['slide']} bgColor="primary" />
         <Slide transition={['slide']} bgColor="primary">
