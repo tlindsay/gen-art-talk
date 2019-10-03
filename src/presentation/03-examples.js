@@ -1,10 +1,7 @@
 import React from 'react';
 import {
   Slide,
-  Heading,
-  Layout,
-  Fit,
-  Fill
+  Heading
 } from 'spectacle';
 
 import styled from '@emotion/styled';
