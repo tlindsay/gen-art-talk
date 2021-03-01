@@ -64,7 +64,7 @@
     "spectacle-code-slide": "^0.5.2",
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
-    "three": "^0.107.0",
+    "three": "^0.125.0",
     "url-loader": "1.1.1",
     "webmidi": "^2.5.0",
     "webpack": "4.19.1",
